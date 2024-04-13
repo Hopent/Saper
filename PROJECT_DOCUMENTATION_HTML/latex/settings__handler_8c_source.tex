@@ -1,0 +1,35 @@
+\hypertarget{settings__handler_8c_source}{}\doxysection{settings\+\_\+handler.\+c}
+\mbox{\hyperlink{settings__handler_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00007}00007 \textcolor{preprocessor}{\#include "{}settings\_handler.h"{}}}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00016}\mbox{\hyperlink{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}{00016}} \textcolor{keywordtype}{void} \mbox{\hyperlink{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}{open\_settings}}(BITMAP *buffer, BITMAP *zero\_block,BITMAP *standard\_block,\textcolor{keyword}{struct} \mbox{\hyperlink{structustawienia}{ustawienia}} *settings)\{}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00017}00017     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00018}00018     clear(buffer);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00019}00019        \textcolor{keywordflow}{for}(i=0;i<(*settings).block\_count;i++)\{}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00020}00020             \textcolor{keywordflow}{for}(j=0;j<(*settings).block\_count;j++)\{}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00021}00021                 draw\_sprite(buffer,zero\_block,j*(*settings).block\_size,i*(*settings).block\_size);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00022}00022             \}}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00023}00023         \}}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00024}00024         draw\_sprite(screen,buffer,(*settings).starting\_x,(*settings).starting\_y);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00025}00025         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+30,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}Poziom trudnosci :"{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00026}00026         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+45,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}(Latwy , Sredni, Trudny, Custom)"{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00027}00027         draw\_sprite(screen,standard\_block,(*settings).starting\_x+15,(*settings).starting\_y+60);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00028}00028         draw\_sprite(screen,standard\_block,(*settings).starting\_x+80,(*settings).starting\_y+60);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00029}00029         draw\_sprite(screen,standard\_block,(*settings).starting\_x+150,(*settings).starting\_y+60);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00030}00030         draw\_sprite(screen,standard\_block,(*settings).starting\_x+215,(*settings).starting\_y+60);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00031}00031         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+95,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}Mute background music : "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00032}00032         draw\_sprite(screen,standard\_block,(*settings).starting\_x+15,(*settings).starting\_y+115);}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00033}00033         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+150,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}KEYS : "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00034}00034         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+165,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}R -\/ Restart Game "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00035}00035         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+180,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}For Custom game only :  "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00036}00036         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+195,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD + : ADD COLUMN "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00037}00037         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+210,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD -\/ : DELETE COLUMN "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00038}00038         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+225,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD * : ADD BOMB "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00039}00039         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+240,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD / : SUBSTRAT BOMB "{}});}
+\DoxyCodeLine{\Hypertarget{settings__handler_8c_source_l00040}00040 \}}
+
+\end{DoxyCode}

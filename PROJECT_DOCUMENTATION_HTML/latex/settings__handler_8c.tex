@@ -1,0 +1,81 @@
+\hypertarget{settings__handler_8c}{}\doxysection{settings\+\_\+handler.\+c File Reference}
+\label{settings__handler_8c}\index{settings\_handler.c@{settings\_handler.c}}
+
+
+Settings handler file.  
+
+
+{\ttfamily \#include \char`\"{}settings\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}{open\+\_\+settings}} (BITMAP $\ast$buffer, BITMAP $\ast$zero\+\_\+block, BITMAP $\ast$standard\+\_\+block, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Settings handler file. 
+
+\begin{DoxyAuthor}{Author}
+Maciej Kwiecinski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+29.\+05.\+2022 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{settings__handler_8c_source}{settings\+\_\+handler.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}\label{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}} 
+\index{settings\_handler.c@{settings\_handler.c}!open\_settings@{open\_settings}}
+\index{open\_settings@{open\_settings}!settings\_handler.c@{settings\_handler.c}}
+\doxysubsubsection{\texorpdfstring{open\_settings()}{open\_settings()}}
+{\footnotesize\ttfamily void open\+\_\+settings (\begin{DoxyParamCaption}\item[{BITMAP $\ast$}]{buffer,  }\item[{BITMAP $\ast$}]{zero\+\_\+block,  }\item[{BITMAP $\ast$}]{standard\+\_\+block,  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings }\end{DoxyParamCaption})}
+
+Function used to handle settings window.\mbox{[}Mostly draw it\mbox{]} 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & This is pointer to BITMAP we use as a buffer for screen visualizing. \\
+\hline
+{\em zero\+\_\+block} & This is pointer to one of the BITMAP element, needed to draw the board. \\
+\hline
+{\em standard\+\_\+block} & This is pointer to one of the BITMAP element, needed to draw the board. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{settings__handler_8c_source_l00016}{16}} of file \mbox{\hyperlink{settings__handler_8c_source}{settings\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                                                                                                          \{}
+\DoxyCodeLine{00017     \textcolor{keywordtype}{int} i,j;}
+\DoxyCodeLine{00018     clear(buffer);}
+\DoxyCodeLine{00019        \textcolor{keywordflow}{for}(i=0;i<(*settings).block\_count;i++)\{}
+\DoxyCodeLine{00020             \textcolor{keywordflow}{for}(j=0;j<(*settings).block\_count;j++)\{}
+\DoxyCodeLine{00021                 draw\_sprite(buffer,zero\_block,j*(*settings).block\_size,i*(*settings).block\_size);}
+\DoxyCodeLine{00022             \}}
+\DoxyCodeLine{00023         \}}
+\DoxyCodeLine{00024         draw\_sprite(screen,buffer,(*settings).starting\_x,(*settings).starting\_y);}
+\DoxyCodeLine{00025         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+30,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}Poziom trudnosci :"{}});}
+\DoxyCodeLine{00026         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+45,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}(Latwy , Sredni, Trudny, Custom)"{}});}
+\DoxyCodeLine{00027         draw\_sprite(screen,standard\_block,(*settings).starting\_x+15,(*settings).starting\_y+60);}
+\DoxyCodeLine{00028         draw\_sprite(screen,standard\_block,(*settings).starting\_x+80,(*settings).starting\_y+60);}
+\DoxyCodeLine{00029         draw\_sprite(screen,standard\_block,(*settings).starting\_x+150,(*settings).starting\_y+60);}
+\DoxyCodeLine{00030         draw\_sprite(screen,standard\_block,(*settings).starting\_x+215,(*settings).starting\_y+60);}
+\DoxyCodeLine{00031         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+95,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}Mute background music : "{}});}
+\DoxyCodeLine{00032         draw\_sprite(screen,standard\_block,(*settings).starting\_x+15,(*settings).starting\_y+115);}
+\DoxyCodeLine{00033         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+150,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}KEYS : "{}});}
+\DoxyCodeLine{00034         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+165,GREEN,makecol(138,138,138),\textcolor{stringliteral}{"{}R -\/ Restart Game "{}});}
+\DoxyCodeLine{00035         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+180,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}For Custom game only :  "{}});}
+\DoxyCodeLine{00036         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+195,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD + : ADD COLUMN "{}});}
+\DoxyCodeLine{00037         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+210,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD -\/ : DELETE COLUMN "{}});}
+\DoxyCodeLine{00038         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+225,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD * : ADD BOMB "{}});}
+\DoxyCodeLine{00039         textprintf\_ex(screen,font,(*settings).starting\_x,(*settings).starting\_y+240,BLUE,makecol(138,138,138),\textcolor{stringliteral}{"{}NUMPAD / : SUBSTRAT BOMB "{}});}
+\DoxyCodeLine{00040 \}}
+
+\end{DoxyCode}

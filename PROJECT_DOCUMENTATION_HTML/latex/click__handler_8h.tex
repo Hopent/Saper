@@ -1,0 +1,136 @@
+\hypertarget{click__handler_8h}{}\doxysection{click\+\_\+handler.\+h File Reference}
+\label{click__handler_8h}\index{click\_handler.h@{click\_handler.h}}
+
+
+Main file of the project.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$allegro.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}settings\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{click__handler_8h_a2e7ab24c114cf1698086e314e7740022}{check\+\_\+clicked}} (int element, int $\ast$block\+\_\+array\+\_\+pointer, BITMAP $\ast$buffer, BITMAP $\ast$BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings, SAMPLE $\ast$clicked\+\_\+block\+\_\+music, SAMPLE $\ast$explosion)
+\item 
+void \mbox{\hyperlink{click__handler_8h_aa91465fd84c47e6a4bd18e9a576144ef}{odslon\+\_\+kwadrat}} (int element, int $\ast$block\+\_\+array\+\_\+pointer, BITMAP $\ast$buffer, BITMAP $\ast$BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main file of the project. 
+
+\begin{DoxyAuthor}{Author}
+Maciej Kwiecinski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+29.\+05.\+2022 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{click__handler_8h_source}{click\+\_\+handler.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{click__handler_8h_a2e7ab24c114cf1698086e314e7740022}\label{click__handler_8h_a2e7ab24c114cf1698086e314e7740022}} 
+\index{click\_handler.h@{click\_handler.h}!check\_clicked@{check\_clicked}}
+\index{check\_clicked@{check\_clicked}!click\_handler.h@{click\_handler.h}}
+\doxysubsubsection{\texorpdfstring{check\_clicked()}{check\_clicked()}}
+{\footnotesize\ttfamily void check\+\_\+clicked (\begin{DoxyParamCaption}\item[{int}]{element,  }\item[{int $\ast$}]{block\+\_\+array\+\_\+pointer,  }\item[{BITMAP $\ast$}]{buffer,  }\item[{BITMAP $\ast$}]{BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]},  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings,  }\item[{SAMPLE $\ast$}]{clicked\+\_\+block\+\_\+music,  }\item[{SAMPLE $\ast$}]{explosion }\end{DoxyParamCaption})}
+
+Function used to check already clicked block This function will check block number that we will delivery as parameter and depends on the value end the game or reveal it. This function will also play a sound after click and reveal everything if the clicked block is actually a bomb. 
+\begin{DoxyParams}{Parameters}
+{\em element} & This is number of actual checking block. It is needed to check proper element from block\+\_\+array\+\_\+pointer array. \\
+\hline
+{\em block\+\_\+array\+\_\+pointer} & This is pointer to to table with block\textquotesingle{}s values. \\
+\hline
+{\em buffer} & This is pointer to BITMAP we use as a buffer for screen visualizing. \\
+\hline
+{\em BITMAPS\+\_\+\+LIST} & This is pointer to table with all the bitmaps used for drawing. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+{\em clicked\+\_\+block\+\_\+music} & This is pointer to SAMPLE data type, with sound of the clicked block. \\
+\hline
+{\em explosion} & This is pointer to SAMPLE data type, with sound of the explosion. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{map__and__drawing__handler_8c_aaf7ce947663aa3772bfd7b8a44e419e0}{odslon\+\_\+wszystko()}} \mbox{\hyperlink{click__handler_8h_aa91465fd84c47e6a4bd18e9a576144ef}{odslon\+\_\+kwadrat()}} \mbox{\hyperlink{click__handler_8h_a2e7ab24c114cf1698086e314e7740022}{check\+\_\+clicked()}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{click__handler_8c_source_l00022}{22}} of file \mbox{\hyperlink{click__handler_8c_source}{click\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022                                                                                                                                                                         \{}
+\DoxyCodeLine{00023         \textcolor{keywordflow}{if}(block\_array\_pointer[element]<300\&\&(*settings).lose\_state==0\&\&(*settings).win\_state==0)\{}
+\DoxyCodeLine{00024             \textcolor{keywordflow}{if}(block\_array\_pointer[element]!=15\&\&block\_array\_pointer[element]<50)\{play\_sample(clicked\_block\_music, 255, 0, 1000, 0);play\_sample(clicked\_block\_music,255,255,1000,0);\}}
+\DoxyCodeLine{00025             \textcolor{keywordflow}{if}(block\_array\_pointer[element]==15)\{}
+\DoxyCodeLine{00026                 play\_sample(explosion,255,0, 1000,0);}
+\DoxyCodeLine{00027                 play\_sample(explosion,255,255, 1000,0);}
+\DoxyCodeLine{00028                 block\_array\_pointer[element]=25;}
+\DoxyCodeLine{00029                 \mbox{\hyperlink{map__and__drawing__handler_8c_aaf7ce947663aa3772bfd7b8a44e419e0}{odslon\_wszystko}}(block\_array\_pointer,buffer,BITMAPS\_LIST,settings);}
+\DoxyCodeLine{00030             \}}
+\DoxyCodeLine{00031             \textcolor{keywordflow}{if}(block\_array\_pointer[element]<10)\{}
+\DoxyCodeLine{00032                 \mbox{\hyperlink{click__handler_8c_aa91465fd84c47e6a4bd18e9a576144ef}{odslon\_kwadrat}}(element,block\_array\_pointer,buffer,BITMAPS\_LIST,settings);}
+\DoxyCodeLine{00033                 block\_array\_pointer[element] = block\_array\_pointer[element]+50;}
+\DoxyCodeLine{00034                 \textcolor{keywordflow}{if}(block\_array\_pointer[element]-\/50==0)\{}
+\DoxyCodeLine{00035                     \textcolor{comment}{//gora}}
+\DoxyCodeLine{00036                     \textcolor{keywordflow}{if}(element>(*settings).block\_count)\{}
+\DoxyCodeLine{00037                          \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element-\/(*settings).block\_count,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{00038                     \}}
+\DoxyCodeLine{00039                     \textcolor{comment}{//prawo}}
+\DoxyCodeLine{00040                     \textcolor{keywordflow}{if}((element\%(*settings).block\_count)!=0)\{}
+\DoxyCodeLine{00041                         \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element+1,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{00042                     \}}
+\DoxyCodeLine{00043                     \textcolor{comment}{//dol}}
+\DoxyCodeLine{00044                     \textcolor{keywordflow}{if}((element+(*settings).block\_count)<((*settings).block\_count*(*settings).block\_count))\{}
+\DoxyCodeLine{00045                             \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element+(*settings).block\_count,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{00046                        \}}
+\DoxyCodeLine{00047                     \textcolor{comment}{//lewo}}
+\DoxyCodeLine{00048                     \textcolor{keywordflow}{if}(element\%(*settings).block\_count!=1)\{}
+\DoxyCodeLine{00049                             \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element-\/1,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{00050                     \}}
+\DoxyCodeLine{00051                 \}}
+\DoxyCodeLine{00052             \}}
+\DoxyCodeLine{00053         \}}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{click__handler_8h_aa91465fd84c47e6a4bd18e9a576144ef}\label{click__handler_8h_aa91465fd84c47e6a4bd18e9a576144ef}} 
+\index{click\_handler.h@{click\_handler.h}!odslon\_kwadrat@{odslon\_kwadrat}}
+\index{odslon\_kwadrat@{odslon\_kwadrat}!click\_handler.h@{click\_handler.h}}
+\doxysubsubsection{\texorpdfstring{odslon\_kwadrat()}{odslon\_kwadrat()}}
+{\footnotesize\ttfamily void odslon\+\_\+kwadrat (\begin{DoxyParamCaption}\item[{int}]{element,  }\item[{int $\ast$}]{block\+\_\+array\+\_\+pointer,  }\item[{BITMAP $\ast$}]{buffer,  }\item[{BITMAP $\ast$}]{BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]},  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings }\end{DoxyParamCaption})}
+
+Function used to draw/reveal a block. It will also calculate coordinates, where should it draw it. 
+\begin{DoxyParams}{Parameters}
+{\em element} & This is number of actual checking block. It is needed to check proper element from block\+\_\+array\+\_\+pointer array. \\
+\hline
+{\em block\+\_\+array\+\_\+pointer} & This is pointer to to table with block\textquotesingle{}s values. \\
+\hline
+{\em buffer} & This is pointer to BITMAP we use as a buffer for screen visualizing. \\
+\hline
+{\em BITMAPS\+\_\+\+LIST} & This is pointer to table with all the bitmaps used for drawing. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{click__handler_8c_source_l00064}{64}} of file \mbox{\hyperlink{click__handler_8c_source}{click\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064                                                                                                                            \{}
+\DoxyCodeLine{00065             \textcolor{keywordtype}{int} x = (*settings).starting\_x+((element-\/1)\%(*settings).block\_count)*(*settings).block\_size;}
+\DoxyCodeLine{00066             \textcolor{keywordtype}{int} y = (*settings).starting\_y+((element -\/ (element-\/1)\%(*settings).block\_count)/(*settings).block\_count)*(*settings).block\_size;}
+\DoxyCodeLine{00067             draw\_sprite(buffer,BITMAPS\_LIST[block\_array\_pointer[element]],x,y);}
+\DoxyCodeLine{00068 \}}
+
+\end{DoxyCode}

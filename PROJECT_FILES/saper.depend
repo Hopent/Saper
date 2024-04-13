@@ -1,0 +1,141 @@
+# depslib dependency file v1.0
+1648333371 source:c:\users\miudi\desktop\example\main.c
+	<stdio.h>
+	<allegro.h>
+	"settings.h"
+	<time.h>
+
+1648332565 c:\users\miudi\desktop\example\settings.h
+
+1653496847 source:c:\users\miudi\desktop\saper\main.c
+	<stdio.h>
+	<allegro.h>
+	"settings.h"
+	"bitmaps.h"
+	<time.h>
+	<unistd.h>
+
+1652217823 c:\users\miudi\desktop\saper\settings.h
+
+1649626146 c:\users\miudi\desktop\saper\bitmaps.h
+	<allegro.h>
+
+1653742491 source:c:\users\miudi\desktop\saper — kopia\main.c
+	<stdio.h>
+	<allegro.h>
+	<time.h>
+	<unistd.h>
+
+1653501238 c:\users\miudi\desktop\saper — kopia\settings.h
+
+1649626146 c:\users\miudi\desktop\saper — kopia\bitmaps.h
+	<allegro.h>
+
+1653748672 source:c:\users\miudi\desktop\saper — kopia — kopia\click_handler.c
+	"click_handler.h"
+
+1653747732 c:\users\miudi\desktop\saper — kopia — kopia\click_handler.h
+	<stdio.h>
+	<allegro.h>
+	<time.h>
+	<unistd.h>
+	"settings_handler.h"
+
+1653755538 source:c:\users\miudi\desktop\saper — kopia — kopia\main.c
+	"settings_handler.h"
+	"game_state_handler.h"
+	"click_handler.h"
+	"map_and_drawing_handler.h"
+
+1653752537 c:\users\miudi\desktop\saper — kopia — kopia\settings_handler.h
+	"allegro.h"
+
+1653748198 source:c:\users\miudi\desktop\saper — kopia — kopia\settings_handler.c
+	"settings_handler.h"
+
+1653748107 c:\users\miudi\desktop\saper — kopia — kopia\map_and_drawing_handler.h
+	"allegro.h"
+	"settings_handler.h"
+
+1653753205 source:c:\users\miudi\desktop\saper — kopia — kopia\map_and_drawing_handler.c
+	"map_and_drawing_handler.h"
+
+1653755306 source:c:\users\miudi\desktop\saper — kopia — kopia\game_state_handler.c
+	"game_state_handler.h"
+
+1653749006 c:\users\miudi\desktop\saper — kopia — kopia\game_state_handler.h
+	"allegro.h"
+	"settings_handler.h"
+
+1653833631 source:c:\users\miudi\desktop\saper_z_bibliotekami\click_handler.c
+	"click_handler.h"
+
+1653747732 c:\users\miudi\desktop\saper_z_bibliotekami\click_handler.h
+	<stdio.h>
+	<allegro.h>
+	<time.h>
+	<unistd.h>
+	"settings_handler.h"
+
+1653752537 c:\users\miudi\desktop\saper_z_bibliotekami\settings_handler.h
+	"allegro.h"
+
+1653755306 source:c:\users\miudi\desktop\saper_z_bibliotekami\game_state_handler.c
+	"game_state_handler.h"
+
+1653749006 c:\users\miudi\desktop\saper_z_bibliotekami\game_state_handler.h
+	"allegro.h"
+	"settings_handler.h"
+
+1653835382 source:c:\users\miudi\desktop\saper_z_bibliotekami\map_and_drawing_handler.c
+	"map_and_drawing_handler.h"
+
+1653835409 c:\users\miudi\desktop\saper_z_bibliotekami\map_and_drawing_handler.h
+	"allegro.h"
+	"settings_handler.h"
+
+1653748198 source:c:\users\miudi\desktop\saper_z_bibliotekami\settings_handler.c
+	"settings_handler.h"
+
+1653835357 source:c:\users\miudi\desktop\saper_z_bibliotekami\main.c
+	"settings_handler.h"
+	"game_state_handler.h"
+	"click_handler.h"
+	"map_and_drawing_handler.h"
+
+1653846742 source:c:\users\miudi\desktop\s\click_handler.c
+	"click_handler.h"
+
+1653845052 c:\users\miudi\desktop\s\click_handler.h
+	<stdio.h>
+	<allegro.h>
+	<time.h>
+	<unistd.h>
+	"settings_handler.h"
+
+1653845051 c:\users\miudi\desktop\s\settings_handler.h
+	"allegro.h"
+
+1653846914 source:c:\users\miudi\desktop\s\main.c
+	"settings_handler.h"
+	"game_state_handler.h"
+	"click_handler.h"
+	"map_and_drawing_handler.h"
+
+1653846940 c:\users\miudi\desktop\s\game_state_handler.h
+	"allegro.h"
+	"settings_handler.h"
+
+1653845183 c:\users\miudi\desktop\s\map_and_drawing_handler.h
+	"allegro.h"
+	"settings_handler.h"
+
+1653846916 source:c:\users\miudi\desktop\s\game_state_handler.c
+	"game_state_handler.h"
+
+1653846733 source:c:\users\miudi\desktop\s\map_and_drawing_handler.c
+	"map_and_drawing_handler.h"
+
+1653846734 source:c:\users\miudi\desktop\s\settings_handler.c
+	"settings_handler.h"
+

@@ -1,0 +1,45 @@
+\hypertarget{game__state__handler_8c_source}{}\doxysection{game\+\_\+state\+\_\+handler.\+c}
+\mbox{\hyperlink{game__state__handler_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00007}00007 \textcolor{preprocessor}{\#include "{}game\_state\_handler.h"{}}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00016}\mbox{\hyperlink{game__state__handler_8c_af678fcdc6accef9bccb5042e0982ea15}{00016}} \textcolor{keywordtype}{void} \mbox{\hyperlink{game__state__handler_8c_af678fcdc6accef9bccb5042e0982ea15}{losuj\_bomby}}(\textcolor{keywordtype}{int} *array,\textcolor{keyword}{struct} \mbox{\hyperlink{structustawienia}{ustawienia}} *settings)\{}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00017}00017     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00018}00018     \textcolor{keywordtype}{int} liczba=0;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00019}00019     \textcolor{keywordflow}{for}(i=(*settings).bomb\_count;i>0;i-\/-\/)\{}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00020}00020             liczba =1+rand()\%((*settings).block\_count*(*settings).block\_count);}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00021}00021         \textcolor{keywordflow}{if}(array[liczba]!=15)\{}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00022}00022             array[liczba]=15;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00023}00023         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00024}00024             i++;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00025}00025         \}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00026}00026     \}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00038}\mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{00038}} \textcolor{keywordtype}{void} \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(\textcolor{keywordtype}{int} *block\_array\_pointer,BITMAP *buffer,BITMAP *standard\_block,\textcolor{keyword}{struct} \mbox{\hyperlink{structustawienia}{ustawienia}} *settings)\{}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00039}00039     (*settings).is\_started = 0;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00040}00040     (*settings).win\_state = 0;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00041}00041     (*settings).lose\_state = 0;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00042}00042     (*settings).start\_count = (*settings).count;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00043}00043     (*settings).block\_count+=1;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00044}00044     clear(buffer);}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00045}00045     \mbox{\hyperlink{main_8c_a36302217352f565fe6dc3bebbaaeb108}{wyzeruj\_tablice}}(block\_array\_pointer,settings);\textcolor{comment}{//poczatkowe zerowanie tablicy -\/ kazdy blok ma stan rowny 0}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00046}00046     (*settings).block\_count-\/=1;}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00047}00047     \mbox{\hyperlink{game__state__handler_8c_af678fcdc6accef9bccb5042e0982ea15}{losuj\_bomby}}(block\_array\_pointer,settings);}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00048}00048     \mbox{\hyperlink{map__and__drawing__handler_8c_abb261e06472a9480aa741681a0de9800}{sprawdz\_plansze}}(block\_array\_pointer,settings);}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00049}00049      \textcolor{keywordtype}{int} i=0;\textcolor{keywordtype}{int} j=0;\textcolor{comment}{//Tymczasowe zmienne do petli}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00050}00050         \textcolor{keywordflow}{for}(i=0;i<(*settings).block\_count;i++)\{}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00051}00051             \textcolor{keywordflow}{for}(j=0;j<(*settings).block\_count;j++)\{}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00052}00052                 draw\_sprite(buffer,standard\_block,(*settings).starting\_x+(i*(*settings).block\_size),(*settings).starting\_y+(j*(*settings).block\_size));\textcolor{comment}{//Rysowanie grafiki wszystkich blokow do wirtualnego ekranu}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00053}00053             \}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00054}00054         \}}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00055}00055         draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{\Hypertarget{game__state__handler_8c_source_l00056}00056 \}}
+
+\end{DoxyCode}

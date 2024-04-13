@@ -1,0 +1,311 @@
+\hypertarget{map__and__drawing__handler_8h}{}\doxysection{map\+\_\+and\+\_\+drawing\+\_\+handler.\+h File Reference}
+\label{map__and__drawing__handler_8h}\index{map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}}
+
+
+Main file of the project.  
+
+
+{\ttfamily \#include \char`\"{}allegro.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}settings\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{map__and__drawing__handler_8h_a410049be6fa50e8ba6e8b2d5d7003fbd}{sprawdz\+\_\+plansze}} (int $\ast$tablica, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings)
+\item 
+void \mbox{\hyperlink{map__and__drawing__handler_8h_aaf7ce947663aa3772bfd7b8a44e419e0}{odslon\+\_\+wszystko}} (int $\ast$block\+\_\+array\+\_\+pointer, BITMAP $\ast$buffer, BITMAP $\ast$BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings)
+\item 
+void \mbox{\hyperlink{map__and__drawing__handler_8h_a995c9cc24be5f5cc921f267a6a399a9f}{draw\+\_\+board}} (BITMAP $\ast$buffer, BITMAP $\ast$BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]}, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings, FONT $\ast$zegar)
+\begin{DoxyCompactList}\small\item\em Function used to draw the board itself. This function will draw every single block needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map__and__drawing__handler_8h_a5576ac47e19dbe80b49c5655b6635afa}{load\+\_\+bitmaps}} (BITMAP $\ast$BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main file of the project. 
+
+\begin{DoxyAuthor}{Author}
+Maciej Kwiecinski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+29.\+05.\+2022 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{map__and__drawing__handler_8h_source}{map\+\_\+and\+\_\+drawing\+\_\+handler.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{map__and__drawing__handler_8h_a995c9cc24be5f5cc921f267a6a399a9f}\label{map__and__drawing__handler_8h_a995c9cc24be5f5cc921f267a6a399a9f}} 
+\index{map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}!draw\_board@{draw\_board}}
+\index{draw\_board@{draw\_board}!map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}}
+\doxysubsubsection{\texorpdfstring{draw\_board()}{draw\_board()}}
+{\footnotesize\ttfamily void draw\+\_\+board (\begin{DoxyParamCaption}\item[{BITMAP $\ast$}]{buffer,  }\item[{BITMAP $\ast$}]{BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]},  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings,  }\item[{FONT $\ast$}]{zegar }\end{DoxyParamCaption})}
+
+
+
+Function used to draw the board itself. This function will draw every single block needed. 
+
+Function used to draw the board itself. This function will draw every single block needed. 
+\begin{DoxyParams}{Parameters}
+{\em buffer} & This is pointer to BITMAP we use as a buffer for screen visualizing. \\
+\hline
+{\em BITMAPS\+\_\+\+LIST} & This is pointer to table with all the bitmaps used for drawing. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+{\em zegar} & This is pointer to FONT data type used for drawing actual time.\\
+\hline
+{\em buffer} & This is pointer to BITMAP we use as a buffer for screen visualizing. \\
+\hline
+{\em BITMAPS\+\_\+\+LIST} & This is pointer to table with all the bitmaps used for drawing. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+{\em zegar} & This is pointer to FONT data type used for drawing actual time. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{map__and__drawing__handler_8c_source_l00110}{110}} of file \mbox{\hyperlink{map__and__drawing__handler_8c_source}{map\+\_\+and\+\_\+drawing\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110                                                                                               \{}
+\DoxyCodeLine{00111     draw\_sprite(buffer,BITMAPS\_LIST[30],(*settings).starting\_x-\/25,(*settings).starting\_y-\/75);\textcolor{comment}{//Rog lewy gora}}
+\DoxyCodeLine{00112     draw\_sprite(buffer,BITMAPS\_LIST[31],(*settings).starting\_x+((*settings).block\_size*(*settings).block\_count),(*settings).starting\_y-\/75);\textcolor{comment}{//Rog prawy gora}}
+\DoxyCodeLine{00113     draw\_sprite(buffer,BITMAPS\_LIST[27],(*settings).starting\_x-\/25,(*settings).starting\_y+((*settings).block\_size*(*settings).block\_count));\textcolor{comment}{//Rog lewy dol}}
+\DoxyCodeLine{00114     draw\_sprite(buffer,BITMAPS\_LIST[28],(*settings).starting\_x+((*settings).block\_size*(*settings).block\_count),(*settings).starting\_y+((*settings).block\_size*(*settings).block\_count));\textcolor{comment}{//Rog prawy gora}}
+\DoxyCodeLine{00115     \textcolor{keywordtype}{int} i=0;\textcolor{keywordtype}{int} z=0;\textcolor{comment}{//Tymczasowe zmienne do petli}}
+\DoxyCodeLine{00116         \textcolor{keywordflow}{for}(z=0;z<(*settings).block\_count+2;z++)\{}
+\DoxyCodeLine{00117             draw\_sprite(buffer,BITMAPS\_LIST[32],(*settings).starting\_x-\/25,(*settings).starting\_y+((*settings).block\_size*z) -\/ 50);\textcolor{comment}{//Ramka lewo}}
+\DoxyCodeLine{00118             draw\_sprite(buffer,BITMAPS\_LIST[33],(*settings).starting\_x+((*settings).block\_size*(*settings).block\_count),(*settings).starting\_y+((*settings).block\_size*z)-\/50);\textcolor{comment}{//Ramka prawo}}
+\DoxyCodeLine{00119             \}}
+\DoxyCodeLine{00120         \textcolor{keywordflow}{for}(i=0;i<(*settings).block\_count;i++)\{}
+\DoxyCodeLine{00121             draw\_sprite(buffer,BITMAPS\_LIST[26],(*settings).starting\_x+((*settings).block\_size*i),(*settings).starting\_y-\/75);\textcolor{comment}{//Ramka gora}}
+\DoxyCodeLine{00122             draw\_sprite(buffer,BITMAPS\_LIST[26],(*settings).starting\_x+((*settings).block\_size*i),(*settings).starting\_y+((*settings).block\_size*(*settings).block\_count));\textcolor{comment}{//Ramka dol}}
+\DoxyCodeLine{00123             draw\_sprite(buffer,BITMAPS\_LIST[0],(*settings).starting\_x+((*settings).block\_size*i),(*settings).starting\_y-\/50);\textcolor{comment}{//Wypelnienie}}
+\DoxyCodeLine{00124             draw\_sprite(buffer,BITMAPS\_LIST[29],(*settings).starting\_x+((*settings).block\_size*i),(*settings).starting\_y-\/25);\textcolor{comment}{//Wypelnienie}}
+\DoxyCodeLine{00125     \}}
+\DoxyCodeLine{00126     draw\_sprite(buffer,BITMAPS\_LIST[37],(*settings).starting\_x,(*settings).starting\_y-\/75);}
+\DoxyCodeLine{00127     draw\_sprite(buffer,BITMAPS\_LIST[38],(*settings).block\_count*(*settings).block\_size-\/60+(*settings).starting\_x,(*settings).starting\_y-\/75);}
+\DoxyCodeLine{00128     draw\_sprite(buffer, BITMAPS\_LIST[36],(((*settings).block\_count*25)/2)+(*settings).starting\_x-\/10,(*settings).starting\_y-\/35);}
+\DoxyCodeLine{00129     textprintf(buffer,zegar,(*settings).starting\_x,(*settings).starting\_y-\/35,RED,\textcolor{stringliteral}{"{}\%3d "{}},(*settings).bomb\_count);}
+\DoxyCodeLine{00130 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{map__and__drawing__handler_8h_a5576ac47e19dbe80b49c5655b6635afa}\label{map__and__drawing__handler_8h_a5576ac47e19dbe80b49c5655b6635afa}} 
+\index{map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}!load\_bitmaps@{load\_bitmaps}}
+\index{load\_bitmaps@{load\_bitmaps}!map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}}
+\doxysubsubsection{\texorpdfstring{load\_bitmaps()}{load\_bitmaps()}}
+{\footnotesize\ttfamily void load\+\_\+bitmaps (\begin{DoxyParamCaption}\item[{BITMAP $\ast$}]{BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Function used to load every needed BITMAP to table of BITMAPS 
+\begin{DoxyParams}{Parameters}
+{\em BITMAPS\+\_\+\+LIST} & This is pointer to table with all the bitmaps. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{map__and__drawing__handler_8c_source_l00135}{135}} of file \mbox{\hyperlink{map__and__drawing__handler_8c_source}{map\+\_\+and\+\_\+drawing\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00135                                          \{}
+\DoxyCodeLine{00136             BITMAPS\_LIST[0] = create\_bitmap(25,25);}
+\DoxyCodeLine{00137             BITMAPS\_LIST[0] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/0\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00138             BITMAPS\_LIST[1] = create\_bitmap(25,25);}
+\DoxyCodeLine{00139             BITMAPS\_LIST[1] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/1\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00140             BITMAPS\_LIST[2] = create\_bitmap(25,25);}
+\DoxyCodeLine{00141             BITMAPS\_LIST[2] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/2\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00142             BITMAPS\_LIST[3] = create\_bitmap(25,25);}
+\DoxyCodeLine{00143             BITMAPS\_LIST[3] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/3\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00144             BITMAPS\_LIST[4] = create\_bitmap(25,25);}
+\DoxyCodeLine{00145             BITMAPS\_LIST[4] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/4\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00146             BITMAPS\_LIST[5] = create\_bitmap(25,25);}
+\DoxyCodeLine{00147             BITMAPS\_LIST[5] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/5\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00148             BITMAPS\_LIST[6] = create\_bitmap(25,25);}
+\DoxyCodeLine{00149             BITMAPS\_LIST[6] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/6\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00150             BITMAPS\_LIST[7] = create\_bitmap(25,25);}
+\DoxyCodeLine{00151             BITMAPS\_LIST[7] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/7\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00152             BITMAPS\_LIST[8] = create\_bitmap(25,25);}
+\DoxyCodeLine{00153             BITMAPS\_LIST[8] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/8\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00154             BITMAPS\_LIST[9] = create\_bitmap(25,25);}
+\DoxyCodeLine{00155             BITMAPS\_LIST[9] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/standard\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00156             BITMAPS\_LIST[10] = create\_bitmap(25,25);}
+\DoxyCodeLine{00157             BITMAPS\_LIST[10] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/flag\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00158             BITMAPS\_LIST[15] = create\_bitmap(25,25);}
+\DoxyCodeLine{00159             BITMAPS\_LIST[15] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/bomb\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00160             BITMAPS\_LIST[20] = create\_bitmap(25,25);}
+\DoxyCodeLine{00161             BITMAPS\_LIST[20] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/bomb2\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00162             BITMAPS\_LIST[25] = create\_bitmap(25,25);}
+\DoxyCodeLine{00163             BITMAPS\_LIST[25] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/bomb3\_block.bmp"{}},NULL);}
+\DoxyCodeLine{00164         \textcolor{comment}{//END\_OF\_BLOCK'S\_BITMAPS}}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00166         \textcolor{comment}{//START\_OF\_GAME\_BOARD\_BITMAPS}}
+\DoxyCodeLine{00167             BITMAPS\_LIST[26] = create\_bitmap(25,25);}
+\DoxyCodeLine{00168             BITMAPS\_LIST[26] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_dol.bmp"{}},NULL);}
+\DoxyCodeLine{00169             BITMAPS\_LIST[27] = create\_bitmap(25,25);}
+\DoxyCodeLine{00170             BITMAPS\_LIST[27] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_dollewy.bmp"{}},NULL);}
+\DoxyCodeLine{00171             BITMAPS\_LIST[28] = create\_bitmap(25,25);}
+\DoxyCodeLine{00172             BITMAPS\_LIST[28] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_dolprawy.bmp"{}},NULL);}
+\DoxyCodeLine{00173             BITMAPS\_LIST[29] = create\_bitmap(25,25);}
+\DoxyCodeLine{00174             BITMAPS\_LIST[29] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_fill.bmp"{}},NULL);}
+\DoxyCodeLine{00175             BITMAPS\_LIST[30] = create\_bitmap(25,25);}
+\DoxyCodeLine{00176             BITMAPS\_LIST[30] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_goralewy.bmp"{}},NULL);}
+\DoxyCodeLine{00177             BITMAPS\_LIST[31] = create\_bitmap(25,25);}
+\DoxyCodeLine{00178             BITMAPS\_LIST[31] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_goraprawy.bmp"{}},NULL);}
+\DoxyCodeLine{00179             BITMAPS\_LIST[32] = create\_bitmap(25,25);}
+\DoxyCodeLine{00180             BITMAPS\_LIST[32] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_lewy.bmp"{}},NULL);}
+\DoxyCodeLine{00181             BITMAPS\_LIST[33] = create\_bitmap(25,25);}
+\DoxyCodeLine{00182             BITMAPS\_LIST[33] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/ramka\_prawy.bmp"{}},NULL);}
+\DoxyCodeLine{00183         \textcolor{comment}{//END\_OF\_GAME\_BOARD\_BITMAPS}}
+\DoxyCodeLine{00184 }
+\DoxyCodeLine{00185         \textcolor{comment}{//START\_OF\_GAME\_STATE\_BITMAPS}}
+\DoxyCodeLine{00186             BITMAPS\_LIST[34] = create\_bitmap(25,25);}
+\DoxyCodeLine{00187             BITMAPS\_LIST[34] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/face\_lose.bmp"{}},NULL);}
+\DoxyCodeLine{00188             BITMAPS\_LIST[35] = create\_bitmap(25,25);}
+\DoxyCodeLine{00189             BITMAPS\_LIST[35] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/face\_win.bmp"{}},NULL);}
+\DoxyCodeLine{00190             BITMAPS\_LIST[36] = create\_bitmap(25,25);}
+\DoxyCodeLine{00191             BITMAPS\_LIST[36] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/face0.bmp"{}},NULL);}
+\DoxyCodeLine{00192             BITMAPS\_LIST[37] = create\_bitmap(75,25);}
+\DoxyCodeLine{00193             BITMAPS\_LIST[37] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/settings\_icon.bmp"{}},NULL);}
+\DoxyCodeLine{00194             BITMAPS\_LIST[38] = create\_bitmap(75,25);}
+\DoxyCodeLine{00195             BITMAPS\_LIST[38] = load\_bitmap(\textcolor{stringliteral}{"{}bitmaps/restart\_icon.bmp"{}},NULL);}
+\DoxyCodeLine{00196         \textcolor{comment}{//END\_OF\_GAME\_STATE\_BITMAPS}}
+\DoxyCodeLine{00197 }
+\DoxyCodeLine{00198 }
+\DoxyCodeLine{00199 }
+\DoxyCodeLine{00200 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{map__and__drawing__handler_8h_aaf7ce947663aa3772bfd7b8a44e419e0}\label{map__and__drawing__handler_8h_aaf7ce947663aa3772bfd7b8a44e419e0}} 
+\index{map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}!odslon\_wszystko@{odslon\_wszystko}}
+\index{odslon\_wszystko@{odslon\_wszystko}!map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}}
+\doxysubsubsection{\texorpdfstring{odslon\_wszystko()}{odslon\_wszystko()}}
+{\footnotesize\ttfamily void odslon\+\_\+wszystko (\begin{DoxyParamCaption}\item[{int $\ast$}]{block\+\_\+array\+\_\+pointer,  }\item[{BITMAP $\ast$}]{buffer,  }\item[{BITMAP $\ast$}]{BITMAPS\+\_\+\+LIST\mbox{[}$\,$\mbox{]},  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings }\end{DoxyParamCaption})}
+
+Function used to reveal every block on the board. This function will check value of every block and depends on it draw the correct BITMAP. It will be activated on lose state of the game. 
+\begin{DoxyParams}{Parameters}
+{\em block\+\_\+array\+\_\+pointer} & This is pointer to to table with block\textquotesingle{}s values. \\
+\hline
+{\em buffer} & This is pointer to BITMAP we use as a buffer for screen visualizing. \\
+\hline
+{\em BITMAPS\+\_\+\+LIST} & This is pointer to table with all the bitmaps used for drawing. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{map__and__drawing__handler_8c_source_l00082}{82}} of file \mbox{\hyperlink{map__and__drawing__handler_8c_source}{map\+\_\+and\+\_\+drawing\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082                                                                                                                 \{}
+\DoxyCodeLine{00083     \textcolor{keywordtype}{int} i=0;\textcolor{keywordtype}{int} j=0;\textcolor{keywordtype}{int} element=0;\textcolor{comment}{//Tymczasowe zmienne do petli}}
+\DoxyCodeLine{00084     \textcolor{keywordflow}{for}(i=0;i<(*settings).block\_count;i++)\{}
+\DoxyCodeLine{00085         \textcolor{keywordflow}{for}(j=0;j<(*settings).block\_count;j++)\{}
+\DoxyCodeLine{00086             element++;}
+\DoxyCodeLine{00087             \textcolor{keywordflow}{if}(block\_array\_pointer[element]>250)\{}
+\DoxyCodeLine{00088                     block\_array\_pointer[element]=block\_array\_pointer[element]-\/300;}
+\DoxyCodeLine{00089                     \textcolor{keywordflow}{if}(block\_array\_pointer[element]==15)\{}
+\DoxyCodeLine{00090                         block\_array\_pointer[element]=20;}
+\DoxyCodeLine{00091                     \}}
+\DoxyCodeLine{00092             \}}
+\DoxyCodeLine{00093             \textcolor{keywordflow}{if}(block\_array\_pointer[element]<50)\{draw\_sprite(buffer,BITMAPS\_LIST[block\_array\_pointer[element]],(*settings).starting\_x+(j*(*settings).block\_size),(*settings).starting\_y+(i*(*settings).block\_size));\};}
+\DoxyCodeLine{00094 }
+\DoxyCodeLine{00095         \}}
+\DoxyCodeLine{00096     \}}
+\DoxyCodeLine{00097     (*settings).lose\_state=1;}
+\DoxyCodeLine{00098 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{map__and__drawing__handler_8h_a410049be6fa50e8ba6e8b2d5d7003fbd}\label{map__and__drawing__handler_8h_a410049be6fa50e8ba6e8b2d5d7003fbd}} 
+\index{map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}!sprawdz\_plansze@{sprawdz\_plansze}}
+\index{sprawdz\_plansze@{sprawdz\_plansze}!map\_and\_drawing\_handler.h@{map\_and\_drawing\_handler.h}}
+\doxysubsubsection{\texorpdfstring{sprawdz\_plansze()}{sprawdz\_plansze()}}
+{\footnotesize\ttfamily void sprawdz\+\_\+plansze (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings }\end{DoxyParamCaption})}
+
+Function used to \char`\"{}random\char`\"{} draw coordinates of the bombs and change value of that block. This function is activated on every start/restart of the game. 
+\begin{DoxyParams}{Parameters}
+{\em array} & This is pointer to table with blocks values. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that...\\
+\hline
+\end{DoxyParams}
+Function used to check value of every block in the array. This function will mostly check and save how many bombs are in every block neighborhood. 
+\begin{DoxyParams}{Parameters}
+{\em array} & This is pointer to array with values to check. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{map__and__drawing__handler_8c_source_l00014}{14}} of file \mbox{\hyperlink{map__and__drawing__handler_8c_source}{map\+\_\+and\+\_\+drawing\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014                                                             \{}
+\DoxyCodeLine{00015     \textcolor{keywordtype}{int} index;}
+\DoxyCodeLine{00016     \textcolor{keywordflow}{for}(index=1;index<((*settings).block\_count*(*settings).block\_count)+1;index++)\{}
+\DoxyCodeLine{00017       \textcolor{keywordflow}{if}(array[index]==0)\{}
+\DoxyCodeLine{00018         \textcolor{keywordtype}{int} liczba\_min=0;}
+\DoxyCodeLine{00019             \textcolor{comment}{//lewy\_gorny}}
+\DoxyCodeLine{00020             \textcolor{keywordflow}{if}((index-\/(*settings).block\_count-\/1)>0\&\&(index\%(*settings).block\_count)!=1)\{}
+\DoxyCodeLine{00021                 \textcolor{keywordflow}{if}(array[index-\/(*settings).block\_count-\/1]==15)\{}
+\DoxyCodeLine{00022                     liczba\_min++;}
+\DoxyCodeLine{00023                 \}}
+\DoxyCodeLine{00024             \}}
+\DoxyCodeLine{00025             \textcolor{comment}{//srodek\_gorny}}
+\DoxyCodeLine{00026             \textcolor{keywordflow}{if}((index-\/(*settings).block\_count)>0)\{}
+\DoxyCodeLine{00027                 \textcolor{keywordflow}{if}(array[index-\/(*settings).block\_count]==15)\{}
+\DoxyCodeLine{00028                     liczba\_min++;}
+\DoxyCodeLine{00029                 \}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031             \}}
+\DoxyCodeLine{00032             \textcolor{comment}{//prawo\_gorny}}
+\DoxyCodeLine{00033             \textcolor{keywordflow}{if}(((index-\/(*settings).block\_count+1)>0)\&\&((index\%(*settings).block\_count)!=0))\{}
+\DoxyCodeLine{00034                 \textcolor{keywordflow}{if}(array[index-\/(*settings).block\_count+1]==15)\{}
+\DoxyCodeLine{00035                     liczba\_min++;}
+\DoxyCodeLine{00036                 \}}
+\DoxyCodeLine{00037             \}}
+\DoxyCodeLine{00038             \textcolor{comment}{//lewo\_srodek}}
+\DoxyCodeLine{00039             \textcolor{keywordflow}{if}((index-\/1)>0\&\&(index\%(*settings).block\_count)!=1)\{}
+\DoxyCodeLine{00040                 \textcolor{keywordflow}{if}(array[index-\/1]==15)\{}
+\DoxyCodeLine{00041                     liczba\_min++;}
+\DoxyCodeLine{00042                 \}}
+\DoxyCodeLine{00043             \}}
+\DoxyCodeLine{00044             \textcolor{comment}{//prawo\_srodek}}
+\DoxyCodeLine{00045             \textcolor{keywordflow}{if}((index\%(*settings).block\_count)!=0)\{}
+\DoxyCodeLine{00046                \textcolor{keywordflow}{if}(array[index+1]==15)\{}
+\DoxyCodeLine{00047                     liczba\_min++;}
+\DoxyCodeLine{00048                 \}}
+\DoxyCodeLine{00049             \}}
+\DoxyCodeLine{00050             \textcolor{comment}{//lewo\_dolny}}
+\DoxyCodeLine{00051             \textcolor{keywordflow}{if}(((index+(*settings).block\_count-\/1)<((*settings).block\_count*(*settings).block\_count)+1)\&\&(index\%(*settings).block\_count)!=1)\{}
+\DoxyCodeLine{00052                 \textcolor{keywordflow}{if}(array[index+(*settings).block\_count-\/1]==15)\{}
+\DoxyCodeLine{00053                     liczba\_min++;}
+\DoxyCodeLine{00054                 \}}
+\DoxyCodeLine{00055             \}}
+\DoxyCodeLine{00056             \textcolor{comment}{//srodek\_dolny}}
+\DoxyCodeLine{00057             \textcolor{keywordflow}{if}((index+(*settings).block\_count)<((*settings).block\_count*(*settings).block\_count)+1)\{}
+\DoxyCodeLine{00058                 \textcolor{keywordflow}{if}(array[index+(*settings).block\_count]==15)\{}
+\DoxyCodeLine{00059                     liczba\_min++;}
+\DoxyCodeLine{00060                 \}}
+\DoxyCodeLine{00061             \}}
+\DoxyCodeLine{00062             \textcolor{comment}{//prawo\_dolny}}
+\DoxyCodeLine{00063             \textcolor{keywordflow}{if}(((index+(*settings).block\_count+1)<((*settings).block\_count*(*settings).block\_count)+1)\&\&((index+(*settings).block\_count)\%(*settings).block\_count!=0))\{}
+\DoxyCodeLine{00064                 \textcolor{keywordflow}{if}(array[index+(*settings).block\_count+1]==15)\{}
+\DoxyCodeLine{00065                     liczba\_min++;}
+\DoxyCodeLine{00066                 \}}
+\DoxyCodeLine{00067             \}}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069             array[index]=liczba\_min;\textcolor{comment}{//zapisuje ilosc min[bomb] w obrębie jednej kradki}}
+\DoxyCodeLine{00070         \}}
+\DoxyCodeLine{00071     \}}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073 \}}
+
+\end{DoxyCode}

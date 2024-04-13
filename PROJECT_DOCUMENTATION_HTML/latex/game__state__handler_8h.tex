@@ -1,0 +1,65 @@
+\hypertarget{game__state__handler_8h}{}\doxysection{game\+\_\+state\+\_\+handler.\+h File Reference}
+\label{game__state__handler_8h}\index{game\_state\_handler.h@{game\_state\_handler.h}}
+
+
+Main file of the project.  
+
+
+{\ttfamily \#include \char`\"{}allegro.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}settings\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game__state__handler_8h_af678fcdc6accef9bccb5042e0982ea15}{losuj\+\_\+bomby}} (int $\ast$array, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main file of the project. 
+
+\begin{DoxyAuthor}{Author}
+Maciej Kwiecinski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+29.\+05.\+2022 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{game__state__handler_8h_source}{game\+\_\+state\+\_\+handler.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game__state__handler_8h_af678fcdc6accef9bccb5042e0982ea15}\label{game__state__handler_8h_af678fcdc6accef9bccb5042e0982ea15}} 
+\index{game\_state\_handler.h@{game\_state\_handler.h}!losuj\_bomby@{losuj\_bomby}}
+\index{losuj\_bomby@{losuj\_bomby}!game\_state\_handler.h@{game\_state\_handler.h}}
+\doxysubsubsection{\texorpdfstring{losuj\_bomby()}{losuj\_bomby()}}
+{\footnotesize\ttfamily void losuj\+\_\+bomby (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings }\end{DoxyParamCaption})}
+
+Function used to \char`\"{}random\char`\"{} draw coordinates of the bombs and change value of that block. This function is activated on every start/restart of the game. 
+\begin{DoxyParams}{Parameters}
+{\em array} & This is pointer to table with blocks values. \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{game__state__handler_8c_source_l00016}{16}} of file \mbox{\hyperlink{game__state__handler_8c_source}{game\+\_\+state\+\_\+handler.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016                                                         \{}
+\DoxyCodeLine{00017     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{00018     \textcolor{keywordtype}{int} liczba=0;}
+\DoxyCodeLine{00019     \textcolor{keywordflow}{for}(i=(*settings).bomb\_count;i>0;i-\/-\/)\{}
+\DoxyCodeLine{00020             liczba =1+rand()\%((*settings).block\_count*(*settings).block\_count);}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{if}(array[liczba]!=15)\{}
+\DoxyCodeLine{00022             array[liczba]=15;}
+\DoxyCodeLine{00023         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00024             i++;}
+\DoxyCodeLine{00025         \}}
+\DoxyCodeLine{00026     \}}
+\DoxyCodeLine{00027 \}}
+
+\end{DoxyCode}

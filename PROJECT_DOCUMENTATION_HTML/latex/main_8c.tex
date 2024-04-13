@@ -1,0 +1,431 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+Main file of the project.  
+
+
+{\ttfamily \#include \char`\"{}settings\+\_\+handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}game\+\_\+state\+\_\+handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}click\+\_\+handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map\+\_\+and\+\_\+drawing\+\_\+handler.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a36302217352f565fe6dc3bebbaaeb108}{wyzeruj\+\_\+tablice}} (int $\ast$array, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings)
+\item 
+void \mbox{\hyperlink{main_8c_a0040c8e99406d83bad27389bdd1cdc12}{count\+\_\+untouched\+\_\+blocks}} (int $\ast$block\+\_\+array\+\_\+pointer, struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$settings)
+\item 
+void \mbox{\hyperlink{main_8c_a13d137800a4aa08c54508e67722620f4}{counter}} ()
+\begin{DoxyCompactList}\small\item\em Function used to count time every second. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\item 
+\mbox{\Hypertarget{main_8c_ae5ce30f43c1f65cf5e459ac242938867}\label{main_8c_ae5ce30f43c1f65cf5e459ac242938867}} 
+{\bfseries END\+\_\+\+OF\+\_\+\+MAIN} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main file of the project. 
+
+\begin{DoxyAuthor}{Author}
+Maciej Kwiecinski 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+29.\+05.\+2022 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a0040c8e99406d83bad27389bdd1cdc12}\label{main_8c_a0040c8e99406d83bad27389bdd1cdc12}} 
+\index{main.c@{main.c}!count\_untouched\_blocks@{count\_untouched\_blocks}}
+\index{count\_untouched\_blocks@{count\_untouched\_blocks}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{count\_untouched\_blocks()}{count\_untouched\_blocks()}}
+{\footnotesize\ttfamily void count\+\_\+untouched\+\_\+blocks (\begin{DoxyParamCaption}\item[{int $\ast$}]{block\+\_\+array\+\_\+pointer,  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings }\end{DoxyParamCaption})}
+
+Function to count how many blocks are Untouched or Flagged. IF there are only blocks that are not a bombs, it will change actual game state to WIN. 
+\begin{DoxyParams}{Parameters}
+{\em block\+\_\+array\+\_\+pointer} & This is pointer to table with block\textquotesingle{}s values. \\
+\hline
+{\em settings} & settings This is pointer to settings structure with one will have most of the informations like how many blocks are there, how many bombs and stuff like that... \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00039}{39}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039                                                                                  \{}
+\DoxyCodeLine{00040     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{00041     \textcolor{keywordtype}{int} number = 0;}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{for}(i=0;i<(*settings).block\_count*(*settings).block\_count;i++)\{}
+\DoxyCodeLine{00043         \textcolor{keywordflow}{if}(block\_array\_pointer[i]<40||block\_array\_pointer[i]>300)\{}
+\DoxyCodeLine{00044             number++;}
+\DoxyCodeLine{00045         \}}
+\DoxyCodeLine{00046     \}}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{if}(number==(*settings).bomb\_count+1)\{}
+\DoxyCodeLine{00048         (*settings).win\_state = 1;}
+\DoxyCodeLine{00049     \}}
+\DoxyCodeLine{00050 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8c_a13d137800a4aa08c54508e67722620f4}\label{main_8c_a13d137800a4aa08c54508e67722620f4}} 
+\index{main.c@{main.c}!counter@{counter}}
+\index{counter@{counter}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{counter()}{counter()}}
+{\footnotesize\ttfamily void counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function used to count time every second. 
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00058}{58}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059 \{}
+\DoxyCodeLine{00060     \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}}++;}
+\DoxyCodeLine{00061 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00063}{63}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064 \{}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066     srand(time(NULL));}
+\DoxyCodeLine{00067     allegro\_init();}
+\DoxyCodeLine{00068     install\_keyboard();}
+\DoxyCodeLine{00069     install\_mouse();}
+\DoxyCodeLine{00070     install\_timer();}
+\DoxyCodeLine{00071     install\_int(\mbox{\hyperlink{main_8c_a13d137800a4aa08c54508e67722620f4}{counter}}, 1000);}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073       \textcolor{comment}{//START\_OF\_DEFAULT\_SETTINGS}}
+\DoxyCodeLine{00074             \textcolor{keyword}{struct }\mbox{\hyperlink{structustawienia}{ustawienia}} settings;}
+\DoxyCodeLine{00075                 settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}} = 25;}
+\DoxyCodeLine{00076                 settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}} = 75;}
+\DoxyCodeLine{00077                 settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}} = 25;}
+\DoxyCodeLine{00078                 settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}} = 10;}
+\DoxyCodeLine{00079                 settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}} = 5;}
+\DoxyCodeLine{00080                 settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}} = 0;}
+\DoxyCodeLine{00081                 settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}} = 0;}
+\DoxyCodeLine{00082                 settings.\mbox{\hyperlink{structustawienia_a9942987d46176c1cb6a153c49a7b2a94}{is\_started}} = 0;}
+\DoxyCodeLine{00083                 settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}} = 0;}
+\DoxyCodeLine{00084                 settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} = 0;}
+\DoxyCodeLine{00085                 settings.\mbox{\hyperlink{structustawienia_af3108d8897f3001f0c970d8e83478b4d}{background\_muted}} = 0;}
+\DoxyCodeLine{00086                 settings.\mbox{\hyperlink{structustawienia_a4cc704f4bff7a7d94863578a4daa7010}{count}} = 0;}
+\DoxyCodeLine{00087                 settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = 0;}
+\DoxyCodeLine{00088         \textcolor{comment}{//END\_OF\_DEFAULT\_SETTINGS}}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090     set\_color\_depth(8);}
+\DoxyCodeLine{00091     \textcolor{keywordflow}{if}(set\_gfx\_mode(GFX\_AUTODETECT\_WINDOWED,1920,1000,0,0))}
+\DoxyCodeLine{00092     \{}
+\DoxyCodeLine{00093         allegro\_message(allegro\_error);}
+\DoxyCodeLine{00094         exit(0);}
+\DoxyCodeLine{00095     \}}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097     \textcolor{keywordflow}{if}(install\_sound(DIGI\_AUTODETECT, MIDI\_AUTODETECT, NULL)) \{}
+\DoxyCodeLine{00098       allegro\_message(\textcolor{stringliteral}{"{}Sound Error: \%s"{}}, allegro\_error);}
+\DoxyCodeLine{00099       \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00100     \}}
+\DoxyCodeLine{00101        show\_mouse(screen);}
+\DoxyCodeLine{00102 }
+\DoxyCodeLine{00103     \textcolor{comment}{//START\_OF\_BITMAP's}}
+\DoxyCodeLine{00104             BITMAP *BITMAPS\_LIST[39];}
+\DoxyCodeLine{00105             \mbox{\hyperlink{map__and__drawing__handler_8c_a5576ac47e19dbe80b49c5655b6635afa}{load\_bitmaps}}(BITMAPS\_LIST);}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107         BITMAP* buffer = create\_bitmap(SCREEN\_W, SCREEN\_H);\textcolor{comment}{//Buffer czyli zastępczy wirutalny ekran na którym rysowana jest kolejna klatka -\/ zapobiega migotaniu ekranu}}
+\DoxyCodeLine{00108         clear(buffer);\textcolor{comment}{//Standardowa bitmapa nie jest wyczyszczona i może zawierać zbędny szum, dlatego należy ją wyczyścić0}}
+\DoxyCodeLine{00109     \textcolor{comment}{//END\_OF\_BITMAPS}}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111     \textcolor{comment}{//START OF MUSIC AND FONT}}
+\DoxyCodeLine{00112         \textcolor{keywordtype}{int} background\_music = allocate\_voice(load\_sample(\textcolor{stringliteral}{"{}Outside.wav"{}}));}
+\DoxyCodeLine{00113         SAMPLE *clicked\_block\_music =  load\_sample(\textcolor{stringliteral}{"{}clicked\_box.wav"{}});}
+\DoxyCodeLine{00114         SAMPLE *explosion = load\_sample(\textcolor{stringliteral}{"{}explosion.wav"{}});}
+\DoxyCodeLine{00115         voice\_set\_playmode(background\_music, PLAYMODE\_LOOP);}
+\DoxyCodeLine{00116         voice\_start(background\_music);}
+\DoxyCodeLine{00117     FONT *zegar = load\_font(\textcolor{stringliteral}{"{}zegar.pcx"{}}, NULL, NULL);}
+\DoxyCodeLine{00118     \textcolor{comment}{//END OF MUSIC AND FONT}}
+\DoxyCodeLine{00119 }
+\DoxyCodeLine{00120     \textcolor{comment}{// STANY\_BLOKOW -\/ \{0-\/standardowy,1-\/jedna bomba...8-\/osiem bomb, >50-\/odsloniety block, >300-\/flaga, 15-\/bomba , 20-\/bomba zlikwidowana, 25-\/bomba zdetonowana\}}}
+\DoxyCodeLine{00121     \textcolor{keywordtype}{int} *block\_array\_pointer = (\textcolor{keywordtype}{int} *)calloc(5000, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})); \textcolor{comment}{//dynamiczna tablica przechowywująca stan bloku}}
+\DoxyCodeLine{00122     \mbox{\hyperlink{main_8c_a36302217352f565fe6dc3bebbaaeb108}{wyzeruj\_tablice}}(block\_array\_pointer,\&settings);\textcolor{comment}{//poczatkowe zerowanie tablicy -\/ kazdy blok ma stan rowny 0}}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124 }
+\DoxyCodeLine{00125 }
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127     \mbox{\hyperlink{game__state__handler_8c_af678fcdc6accef9bccb5042e0982ea15}{losuj\_bomby}}(block\_array\_pointer,\&settings);}
+\DoxyCodeLine{00128     \mbox{\hyperlink{map__and__drawing__handler_8c_abb261e06472a9480aa741681a0de9800}{sprawdz\_plansze}}(block\_array\_pointer,\&settings);}
+\DoxyCodeLine{00129     \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00130      \textcolor{keywordtype}{int} i=0;\textcolor{keywordtype}{int} j=0;\textcolor{comment}{//Tymczasowe zmienne do petli}}
+\DoxyCodeLine{00131         \textcolor{keywordflow}{for}(i=0;i<settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}};i++)\{}
+\DoxyCodeLine{00132             \textcolor{keywordflow}{for}(j=0;j<settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}};j++)\{}
+\DoxyCodeLine{00133                 draw\_sprite(buffer,BITMAPS\_LIST[9],settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+(i*settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}),settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+(j*settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}));\textcolor{comment}{//Rysowanie grafiki wszystkich blokow do wirtualnego ekranu}}
+\DoxyCodeLine{00134             \}}
+\DoxyCodeLine{00135         \}}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137         draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00138         \textcolor{comment}{//zmienne potrzebne do dzialania programu;}}
+\DoxyCodeLine{00139         \textcolor{keywordtype}{int} x\_cords;\textcolor{comment}{//zmienne tymczasowe do zapisywania kordynatow bloku, sluza do zamieniania kordynatow myszki na kordynaty startowe bloku (upraszcza zapis)}}
+\DoxyCodeLine{00140         \textcolor{keywordtype}{int} y\_cords;}
+\DoxyCodeLine{00141         \textcolor{keywordtype}{int} element;\textcolor{comment}{//trzecia zmienna zapisuje obecnie wcisniety element -\/ index w tablicy, zmienna pomocnicza}}
+\DoxyCodeLine{00142         \textcolor{keywordtype}{int} flags=0;}
+\DoxyCodeLine{00143         settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00144             \textcolor{keywordflow}{while}(!key[KEY\_ESC])\textcolor{comment}{//Mozliwosc opuszczenia programu i petli klawiszem ESC}}
+\DoxyCodeLine{00145             \{}
+\DoxyCodeLine{00146                     textprintf(buffer,zegar,settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25-\/47,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/35,RED,\textcolor{stringliteral}{"{}\%3d "{}}, settings.\mbox{\hyperlink{structustawienia_ae24c4d88f0837f01c4d67ef25a2b94f6}{time\_passed}});}
+\DoxyCodeLine{00147                     textprintf(screen,zegar,settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25-\/47,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/35,RED,\textcolor{stringliteral}{"{}\%3d "{}}, settings.\mbox{\hyperlink{structustawienia_ae24c4d88f0837f01c4d67ef25a2b94f6}{time\_passed}});}
+\DoxyCodeLine{00148                     settings.\mbox{\hyperlink{structustawienia_a4cc704f4bff7a7d94863578a4daa7010}{count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00149 }
+\DoxyCodeLine{00150                 \textcolor{keywordflow}{if}(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}} == 0 \&\& settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}} == 0 || settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}}==1 )\{}
+\DoxyCodeLine{00151                     draw\_sprite(screen, BITMAPS\_LIST[36],((settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25)/2)+settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/10,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/35);}
+\DoxyCodeLine{00152                     settings.\mbox{\hyperlink{structustawienia_ae24c4d88f0837f01c4d67ef25a2b94f6}{time\_passed}} = settings.\mbox{\hyperlink{structustawienia_a4cc704f4bff7a7d94863578a4daa7010}{count}}-\/settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}};}
+\DoxyCodeLine{00153                 \}}
+\DoxyCodeLine{00154                 \textcolor{keywordflow}{if}(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}} == 1\&\&settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} == 0 )\{}
+\DoxyCodeLine{00155                     draw\_sprite(screen, BITMAPS\_LIST[34],((settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25)/2)+settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/10,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/35);}
+\DoxyCodeLine{00156                     textprintf\_ex(screen,zegar,((settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25)/2)+settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/25,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/70,RED,makecol(138,138,138),\textcolor{stringliteral}{"{}LOSSER"{}});}
+\DoxyCodeLine{00157                 \}}
+\DoxyCodeLine{00158                 \textcolor{keywordflow}{if}(settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}} == 1\&\&settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} == 0 )\{}
+\DoxyCodeLine{00159                     draw\_sprite(screen, BITMAPS\_LIST[35],((settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25)/2)+settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/10,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/35);}
+\DoxyCodeLine{00160                     textprintf\_ex(screen,zegar,((settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25)/2)+settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/25,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/70,RED,makecol(138,138,138),\textcolor{stringliteral}{"{}WINNER"{}});}
+\DoxyCodeLine{00161                 \}}
+\DoxyCodeLine{00162                 \textcolor{keywordflow}{if}(key[KEY\_PLUS\_PAD]\&\&(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a9942987d46176c1cb6a153c49a7b2a94}{is\_started}}==0)\&\&settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}}==1)\{}
+\DoxyCodeLine{00163                     settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}+=1;}
+\DoxyCodeLine{00164                     rest(300);}
+\DoxyCodeLine{00165                     \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(block\_array\_pointer,buffer,BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00166                     settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00167                     settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} = 0;}
+\DoxyCodeLine{00168                     \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00169                     clear(screen);}
+\DoxyCodeLine{00170                     draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00171                 \}}
+\DoxyCodeLine{00172                 \textcolor{keywordflow}{if}(key[KEY\_MINUS\_PAD]\&\&(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a9942987d46176c1cb6a153c49a7b2a94}{is\_started}}==0)\&\&settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}}==1)\{}
+\DoxyCodeLine{00173                     \textcolor{keywordflow}{if}(settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}>5)\{}
+\DoxyCodeLine{00174                         settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}-\/=1;}
+\DoxyCodeLine{00175                         rest(300);}
+\DoxyCodeLine{00176                         \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(block\_array\_pointer,buffer,BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00177                         settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00178                         settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} = 0;}
+\DoxyCodeLine{00179                         \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00180                         clear(screen);}
+\DoxyCodeLine{00181                         draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00182                     \}}
+\DoxyCodeLine{00183                 \}}
+\DoxyCodeLine{00184                 \textcolor{keywordflow}{if}(key[KEY\_SLASH\_PAD]\&\&(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a9942987d46176c1cb6a153c49a7b2a94}{is\_started}}==0)\&\&settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}}==1)\{}
+\DoxyCodeLine{00185                         settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}}=settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}}+1;}
+\DoxyCodeLine{00186                         rest(300);}
+\DoxyCodeLine{00187                         \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(block\_array\_pointer,buffer,BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00188                         settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00189                         settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} = 0;}
+\DoxyCodeLine{00190                         \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00191 }
+\DoxyCodeLine{00192                         draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00193                 \}}
+\DoxyCodeLine{00194                 \textcolor{keywordflow}{if}(key[KEY\_ASTERISK]\&\&(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a9942987d46176c1cb6a153c49a7b2a94}{is\_started}}==0)\&\&settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}}==1)\{}
+\DoxyCodeLine{00195                         settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}}=settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}}-\/1;}
+\DoxyCodeLine{00196                         rest(300);}
+\DoxyCodeLine{00197                         \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(block\_array\_pointer,buffer,BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00198                         settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00199                         settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} = 0;}
+\DoxyCodeLine{00200                         \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00201                         clear(screen);}
+\DoxyCodeLine{00202                         draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00203                 \}}
+\DoxyCodeLine{00204 }
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206 }
+\DoxyCodeLine{00207                 \textcolor{keywordflow}{if}(key[KEY\_R]\&\&(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==1||settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==1))\{}
+\DoxyCodeLine{00208                     \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(block\_array\_pointer,buffer,BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00209                     settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00210                     \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00211                     draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00212                 \}}
+\DoxyCodeLine{00213 }
+\DoxyCodeLine{00214                 \textcolor{keywordflow}{if}(mouse\_b\&1)\{\textcolor{comment}{//Wykrycie klikniecia lewym przyciskiem myszki}}
+\DoxyCodeLine{00215                     \textcolor{keywordflow}{if}((settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==0\&\&settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==0)\&\&(mouse\_x<(settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+(settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}*settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}))\&\&(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/1)\&\&(mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+(settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}*settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}))\&\&(mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/1)\&\&settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} == 0))\{ \textcolor{comment}{// IF zwraca prawdę gdy pozycja myszki znajduje się na planszy}}
+\DoxyCodeLine{00216                         settings.\mbox{\hyperlink{structustawienia_a9942987d46176c1cb6a153c49a7b2a94}{is\_started}} = 1;}
+\DoxyCodeLine{00217                         element = ((mouse\_x-\/settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})/settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})+(((mouse\_y-\/settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}})/settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})*settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}});}
+\DoxyCodeLine{00218                         \textcolor{keywordflow}{if}(block\_array\_pointer[element]<300)\{}
+\DoxyCodeLine{00219                             x\_cords = ((element-\/1)\%settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}})*settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}};}
+\DoxyCodeLine{00220                             y\_cords = ((element -\/ (element-\/1)\%settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}})/settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}})*settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}};}
+\DoxyCodeLine{00221                             draw\_sprite(buffer,screen,0,0);}
+\DoxyCodeLine{00222                             \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element,block\_array\_pointer,buffer,BITMAPS\_LIST,\&settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{00223                             draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00224                             rest(300);}
+\DoxyCodeLine{00225                         \}}
+\DoxyCodeLine{00226                         \mbox{\hyperlink{main_8c_a0040c8e99406d83bad27389bdd1cdc12}{count\_untouched\_blocks}}(block\_array\_pointer, \&settings);}
+\DoxyCodeLine{00227                     \}}
+\DoxyCodeLine{00228                     \textcolor{keywordflow}{if}(mouse\_x<settings.starting\_x+75\&\&mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/1\&\&mouse\_y<25\&\&mouse\_y>=0)\{}
+\DoxyCodeLine{00229                         settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}} = 1;}
+\DoxyCodeLine{00230                         \textcolor{keywordflow}{if}(settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} == 0)\{}
+\DoxyCodeLine{00231                             settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} = 1;}
+\DoxyCodeLine{00232                             rest(300);}
+\DoxyCodeLine{00233                             \mbox{\hyperlink{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}{open\_settings}}(buffer,BITMAPS\_LIST[0],BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00234 }
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{00236                         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00237                             settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} = 0;}
+\DoxyCodeLine{00238                             \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(block\_array\_pointer,buffer,BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00239                             settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00240                             \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00241                             draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00242                             rest(300);}
+\DoxyCodeLine{00243                         \}}
+\DoxyCodeLine{00244                     \}}
+\DoxyCodeLine{00245                     \textcolor{keywordflow}{if}(mouse\_x>=settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}-\/60+settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}\&\&mouse\_x<=settings.block\_count*settings.block\_size+15+settings.starting\_x\&\&mouse\_y>=settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/75\&\&mouse\_y<=settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/50\&\&(settings.\mbox{\hyperlink{structustawienia_a9942987d46176c1cb6a153c49a7b2a94}{is\_started}}==0||settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==1||settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==1))\{}
+\DoxyCodeLine{00246                             \mbox{\hyperlink{game__state__handler_8c_a7d8c564be3e41d93b7ad76740696f2ae}{restart\_game}}(block\_array\_pointer,buffer,BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00247                             settings.\mbox{\hyperlink{structustawienia_a55bd856a860e8723d084bfc6c5a388f5}{start\_count}} = \mbox{\hyperlink{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}};}
+\DoxyCodeLine{00248                             \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00249                             textprintf(buffer,zegar,settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}*25-\/47,settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/35,RED,\textcolor{stringliteral}{"{}\%3d "{}}, settings.\mbox{\hyperlink{structustawienia_ae24c4d88f0837f01c4d67ef25a2b94f6}{time\_passed}});}
+\DoxyCodeLine{00250                             draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00251                             rest(300);}
+\DoxyCodeLine{00252                     \}}
+\DoxyCodeLine{00253                     \textcolor{keywordflow}{if}(settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}}==1)\{}
+\DoxyCodeLine{00254                         \textcolor{keywordflow}{if}(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+14\&\&mouse\_x<settings.starting\_x+14+settings.block\_size\&\&mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59\&\&mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})\{}
+\DoxyCodeLine{00255                             settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}} = 10;}
+\DoxyCodeLine{00256                             settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}} = 5;}
+\DoxyCodeLine{00257                             settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}} = 0;}
+\DoxyCodeLine{00258                             clear(screen);}
+\DoxyCodeLine{00259                             \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00260                             draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00261                             \mbox{\hyperlink{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}{open\_settings}}(buffer,BITMAPS\_LIST[0],BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00262                         \}}
+\DoxyCodeLine{00263                         \textcolor{keywordflow}{if}(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+79\&\&mouse\_x<settings.starting\_x+79+settings.block\_size\&\&mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59\&\&mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})\{}
+\DoxyCodeLine{00264                             settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}} = 15;}
+\DoxyCodeLine{00265                             settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}} = 25;}
+\DoxyCodeLine{00266                             settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}} = 0;}
+\DoxyCodeLine{00267                             clear(screen);}
+\DoxyCodeLine{00268                             \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00269                             draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00270                             \mbox{\hyperlink{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}{open\_settings}}(buffer,BITMAPS\_LIST[0],BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00271                         \}}
+\DoxyCodeLine{00272                         \textcolor{keywordflow}{if}(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+149\&\&mouse\_x<settings.starting\_x+149+settings.block\_size\&\&mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59\&\&mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})\{}
+\DoxyCodeLine{00273                             settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}} = 20;}
+\DoxyCodeLine{00274                             settings.\mbox{\hyperlink{structustawienia_ad3ec36f35fcf4df2b5475d5b3e1d5edb}{bomb\_count}} = 70;}
+\DoxyCodeLine{00275                             settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}} = 0;}
+\DoxyCodeLine{00276                             clear(screen);}
+\DoxyCodeLine{00277                             \mbox{\hyperlink{map__and__drawing__handler_8c_a995c9cc24be5f5cc921f267a6a399a9f}{draw\_board}}(buffer,BITMAPS\_LIST,\&settings,zegar);}
+\DoxyCodeLine{00278                             draw\_sprite(screen,buffer,0,0);}
+\DoxyCodeLine{00279                             \mbox{\hyperlink{settings__handler_8c_a446c8b5542168bbcff490a74f7927e8c}{open\_settings}}(buffer,BITMAPS\_LIST[0],BITMAPS\_LIST[9],\&settings);}
+\DoxyCodeLine{00280                         \}}
+\DoxyCodeLine{00281                         \textcolor{keywordflow}{if}(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+214\&\&mouse\_x<settings.starting\_x+214+settings.block\_size\&\&mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59\&\&mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+59+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})\{}
+\DoxyCodeLine{00282                             settings.\mbox{\hyperlink{structustawienia_a1648dc6b8476e3317aa58ec5e0373b18}{custom\_game\_state}} = 1;}
+\DoxyCodeLine{00283                         \}}
+\DoxyCodeLine{00284                         \textcolor{keywordflow}{if}(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+14\&\&mouse\_x<settings.starting\_x+14+settings.block\_size\&\&mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+114\&\&mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+114+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}\&\&settings.\mbox{\hyperlink{structustawienia_af3108d8897f3001f0c970d8e83478b4d}{background\_muted}}==0)\{}
+\DoxyCodeLine{00285                             voice\_stop(background\_music);}
+\DoxyCodeLine{00286                             settings.\mbox{\hyperlink{structustawienia_af3108d8897f3001f0c970d8e83478b4d}{background\_muted}}=1;}
+\DoxyCodeLine{00287                             rest(500);}
+\DoxyCodeLine{00288                         \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+14\&\&mouse\_x<settings.starting\_x+14+settings.block\_size\&\&mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+114\&\&mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+114+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}\&\&settings.\mbox{\hyperlink{structustawienia_af3108d8897f3001f0c970d8e83478b4d}{background\_muted}}==1)\{}
+\DoxyCodeLine{00289                             voice\_start(background\_music);}
+\DoxyCodeLine{00290                             settings.\mbox{\hyperlink{structustawienia_af3108d8897f3001f0c970d8e83478b4d}{background\_muted}}=0;}
+\DoxyCodeLine{00291                             rest(300);}
+\DoxyCodeLine{00292                         \}}
+\DoxyCodeLine{00293                     \}}
+\DoxyCodeLine{00294                 \}}
+\DoxyCodeLine{00295                 \textcolor{keywordflow}{if}(mouse\_b\&2\&\&(settings.\mbox{\hyperlink{structustawienia_aa91f88857b5ffa16b7c00add085aeb08}{lose\_state}}==0\&\&settings.\mbox{\hyperlink{structustawienia_a4c92ae7b7aaa36b3f47ffb35cdfd43c6}{win\_state}}==0)\&\&settings.\mbox{\hyperlink{structustawienia_a671e4c14574b8d85f09eac821b3ca1e8}{is\_settings\_open}} == 0)\{}
+\DoxyCodeLine{00296                     \textcolor{keywordflow}{if}((mouse\_x<(settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+(settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}*settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}))\&\&(mouse\_x>settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}-\/1)\&\&(mouse\_y<settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}+(settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}}*settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}}))\&\&(mouse\_y>settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}}-\/1)))\{}
+\DoxyCodeLine{00297                         element = ((mouse\_x-\/settings.\mbox{\hyperlink{structustawienia_a8f2a60126b5b786556ef39cda93c0daa}{starting\_x}}+settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})/settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})+(((mouse\_y-\/settings.\mbox{\hyperlink{structustawienia_a407fc0fefc7683ebcf3980f756a28cf4}{starting\_y}})/settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}})*settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}});}
+\DoxyCodeLine{00298                         x\_cords = ((element-\/1)\%settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}})*settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}};x\_cords=x\_cords+25;}
+\DoxyCodeLine{00299                         y\_cords = ((element -\/ (element-\/1)\%settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}})/settings.\mbox{\hyperlink{structustawienia_a03f73d9caac7305094b5d831213a85d9}{block\_count}})*settings.\mbox{\hyperlink{structustawienia_a63b2361d4ed544eba115778ec8c0e936}{block\_size}};y\_cords=y\_cords+75;}
+\DoxyCodeLine{00300                         \textcolor{keywordflow}{if}(block\_array\_pointer[element]<50 \&\& block\_array\_pointer[element]!=25\&\&block\_array\_pointer[element]!=20)\{}
+\DoxyCodeLine{00301                             draw\_sprite(screen,BITMAPS\_LIST[10],x\_cords,y\_cords);}
+\DoxyCodeLine{00302                             draw\_sprite(buffer,BITMAPS\_LIST[10],x\_cords,y\_cords);}
+\DoxyCodeLine{00303                             block\_array\_pointer[element]=block\_array\_pointer[element]+300;}
+\DoxyCodeLine{00304                             flags++;}
+\DoxyCodeLine{00305                         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00306                             \textcolor{keywordflow}{if}(block\_array\_pointer[element]>299)\{}
+\DoxyCodeLine{00307                                 draw\_sprite(screen,BITMAPS\_LIST[9],x\_cords,y\_cords);}
+\DoxyCodeLine{00308                                 draw\_sprite(buffer,BITMAPS\_LIST[9],x\_cords,y\_cords);}
+\DoxyCodeLine{00309                                 block\_array\_pointer[element]=block\_array\_pointer[element]-\/300;}
+\DoxyCodeLine{00310                                 flags-\/-\/;}
+\DoxyCodeLine{00311                             \}}
+\DoxyCodeLine{00312                         \}}
+\DoxyCodeLine{00313                     rest(500);}
+\DoxyCodeLine{00314                     \}}
+\DoxyCodeLine{00315                 \}}
+\DoxyCodeLine{00316 }
+\DoxyCodeLine{00317 }
+\DoxyCodeLine{00318             \}}
+\DoxyCodeLine{00319 }
+\DoxyCodeLine{00320    \textcolor{comment}{//START OF CLEARING MEMORY}}
+\DoxyCodeLine{00321         free(block\_array\_pointer);}
+\DoxyCodeLine{00322         block\_array\_pointer = NULL;}
+\DoxyCodeLine{00323         \textcolor{keywordflow}{for}(i=0;i<11;i++)\{}
+\DoxyCodeLine{00324             destroy\_bitmap(BITMAPS\_LIST[i]);}
+\DoxyCodeLine{00325         \}}
+\DoxyCodeLine{00326         destroy\_bitmap(BITMAPS\_LIST[15]);}
+\DoxyCodeLine{00327         destroy\_bitmap(BITMAPS\_LIST[20]);}
+\DoxyCodeLine{00328         \textcolor{keywordflow}{for}(i=25;i<39;i++)\{}
+\DoxyCodeLine{00329             destroy\_bitmap(BITMAPS\_LIST[i]);}
+\DoxyCodeLine{00330         \}}
+\DoxyCodeLine{00331         destroy\_bitmap(buffer);}
+\DoxyCodeLine{00332    \textcolor{comment}{//END OF CLEARING MEMORY}}
+\DoxyCodeLine{00333     allegro\_exit();}
+\DoxyCodeLine{00334     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00335 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8c_a36302217352f565fe6dc3bebbaaeb108}\label{main_8c_a36302217352f565fe6dc3bebbaaeb108}} 
+\index{main.c@{main.c}!wyzeruj\_tablice@{wyzeruj\_tablice}}
+\index{wyzeruj\_tablice@{wyzeruj\_tablice}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{wyzeruj\_tablice()}{wyzeruj\_tablice()}}
+{\footnotesize\ttfamily void wyzeruj\+\_\+tablice (\begin{DoxyParamCaption}\item[{int $\ast$}]{array,  }\item[{struct \mbox{\hyperlink{structustawienia}{ustawienia}} $\ast$}]{settings }\end{DoxyParamCaption})}
+
+Function to clear values of the block\textquotesingle{}s type;
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & This is pointer to table to clear \\
+\hline
+{\em settings} & This is pointer to settings structure with one will have informations about how large should be table. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00024}{24}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025 \{}
+\DoxyCodeLine{00026     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{00027     \textcolor{keywordflow}{for}(i=0; i<(*settings).block\_count*(*settings).block\_count; i++)}
+\DoxyCodeLine{00028     \{}
+\DoxyCodeLine{00029         array[i]=0;}
+\DoxyCodeLine{00030     \}}
+\DoxyCodeLine{00031 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}\label{main_8c_ad43c3812e6d13e0518d9f8b8f463ffcf}} 
+\index{main.c@{main.c}!count@{count}}
+\index{count@{count}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily int count =0}
+
+Global Variable for void time counter. 
+
+Definition at line \mbox{\hyperlink{main_8c_source_l00056}{56}} of file \mbox{\hyperlink{main_8c_source}{main.\+c}}.
+

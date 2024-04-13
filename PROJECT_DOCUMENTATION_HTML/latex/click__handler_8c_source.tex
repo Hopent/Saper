@@ -1,0 +1,48 @@
+\hypertarget{click__handler_8c_source}{}\doxysection{click\+\_\+handler.\+c}
+\mbox{\hyperlink{click__handler_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00007}00007 \textcolor{preprocessor}{\#include "{}click\_handler.h"{}}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00022}\mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{00022}} \textcolor{keywordtype}{void} \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(\textcolor{keywordtype}{int} element,\textcolor{keywordtype}{int} *block\_array\_pointer,BITMAP *buffer,BITMAP *BITMAPS\_LIST[],\textcolor{keyword}{struct} \mbox{\hyperlink{structustawienia}{ustawienia}} *settings,SAMPLE *clicked\_block\_music,SAMPLE *explosion)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00023}00023         \textcolor{keywordflow}{if}(block\_array\_pointer[element]<300\&\&(*settings).lose\_state==0\&\&(*settings).win\_state==0)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00024}00024             \textcolor{keywordflow}{if}(block\_array\_pointer[element]!=15\&\&block\_array\_pointer[element]<50)\{play\_sample(clicked\_block\_music, 255, 0, 1000, 0);play\_sample(clicked\_block\_music,255,255,1000,0);\}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00025}00025             \textcolor{keywordflow}{if}(block\_array\_pointer[element]==15)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00026}00026                 play\_sample(explosion,255,0, 1000,0);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00027}00027                 play\_sample(explosion,255,255, 1000,0);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00028}00028                 block\_array\_pointer[element]=25;}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00029}00029                 \mbox{\hyperlink{map__and__drawing__handler_8c_aaf7ce947663aa3772bfd7b8a44e419e0}{odslon\_wszystko}}(block\_array\_pointer,buffer,BITMAPS\_LIST,settings);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00030}00030             \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00031}00031             \textcolor{keywordflow}{if}(block\_array\_pointer[element]<10)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00032}00032                 \mbox{\hyperlink{click__handler_8c_aa91465fd84c47e6a4bd18e9a576144ef}{odslon\_kwadrat}}(element,block\_array\_pointer,buffer,BITMAPS\_LIST,settings);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00033}00033                 block\_array\_pointer[element] = block\_array\_pointer[element]+50;}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00034}00034                 \textcolor{keywordflow}{if}(block\_array\_pointer[element]-\/50==0)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00035}00035                     \textcolor{comment}{//gora}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00036}00036                     \textcolor{keywordflow}{if}(element>(*settings).block\_count)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00037}00037                          \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element-\/(*settings).block\_count,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00038}00038                     \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00039}00039                     \textcolor{comment}{//prawo}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00040}00040                     \textcolor{keywordflow}{if}((element\%(*settings).block\_count)!=0)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00041}00041                         \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element+1,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00042}00042                     \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00043}00043                     \textcolor{comment}{//dol}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00044}00044                     \textcolor{keywordflow}{if}((element+(*settings).block\_count)<((*settings).block\_count*(*settings).block\_count))\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00045}00045                             \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element+(*settings).block\_count,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00046}00046                        \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00047}00047                     \textcolor{comment}{//lewo}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00048}00048                     \textcolor{keywordflow}{if}(element\%(*settings).block\_count!=1)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00049}00049                             \mbox{\hyperlink{click__handler_8c_a2e7ab24c114cf1698086e314e7740022}{check\_clicked}}(element-\/1,block\_array\_pointer,buffer,BITMAPS\_LIST,settings,clicked\_block\_music,explosion);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00050}00050                     \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00051}00051                 \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00052}00052             \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00053}00053         \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00054}00054 \}}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00064}\mbox{\hyperlink{click__handler_8c_aa91465fd84c47e6a4bd18e9a576144ef}{00064}} \textcolor{keywordtype}{void} \mbox{\hyperlink{click__handler_8c_aa91465fd84c47e6a4bd18e9a576144ef}{odslon\_kwadrat}}(\textcolor{keywordtype}{int} element,\textcolor{keywordtype}{int} *block\_array\_pointer,BITMAP *buffer,BITMAP *BITMAPS\_LIST[],\textcolor{keyword}{struct} \mbox{\hyperlink{structustawienia}{ustawienia}} *settings)\{}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00065}00065             \textcolor{keywordtype}{int} x = (*settings).starting\_x+((element-\/1)\%(*settings).block\_count)*(*settings).block\_size;}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00066}00066             \textcolor{keywordtype}{int} y = (*settings).starting\_y+((element -\/ (element-\/1)\%(*settings).block\_count)/(*settings).block\_count)*(*settings).block\_size;}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00067}00067             draw\_sprite(buffer,BITMAPS\_LIST[block\_array\_pointer[element]],x,y);}
+\DoxyCodeLine{\Hypertarget{click__handler_8c_source_l00068}00068 \}}
+
+\end{DoxyCode}
